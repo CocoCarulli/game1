@@ -12,6 +12,8 @@ public class enemy : MonoBehaviour
        [HideInInspector] public NavMeshAgent agent;
 
        public Transform waypoints;
+       public Transform pointToSrart;
+       public GameObject theplayer;
 
        private enemystatemachine statemachine;
 
@@ -45,12 +47,18 @@ public class enemy : MonoBehaviour
         }
         return false;
     }
-
+    void OnTriggerEnter(Collider other)
+    {
+    theplayer.transform.SetPositionAndRotation(pointToSrart.transform.position, pointToSrart.transform.rotation);
+    Physics.SyncTransforms();
+    }
 
     void Update()
     {
        statemachine.Update();
        
     }
+
+
     
 }
