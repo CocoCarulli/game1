@@ -51,6 +51,8 @@ public class enemy : MonoBehaviour
     {
     theplayer.transform.SetPositionAndRotation(pointToSrart.transform.position, pointToSrart.transform.rotation);
     Physics.SyncTransforms();
+    GameManager.health = -1;
+
     }
 
     void Update()
